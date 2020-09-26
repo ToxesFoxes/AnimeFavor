@@ -61,20 +61,24 @@ header {
 			opacity: 0;
 			color: black;
 			border: 1px solid black;
-			border-radius: 8px;
+			border-radius: 4px;
 			transition: all 300ms;
+			background: transparent;
+			animation: search-anim 3s linear infinite;
 		}
 		.btn{
 			top: 0;
 			right: 0;
-			width: 40px;
-			height: 40px;
+			width: 38px;
+			height: 38px;
 			display: flex;
 			position: absolute;
 			align-items: center;
 			justify-content: center;
 			transition: all 300ms;
 			color: black;
+			border: 1px solid black;
+			border-radius: 64px;
 			img{
 				width: 20px;
 				height: 20px;
@@ -89,7 +93,10 @@ header {
 				visibility: visible;
 			}
 			.btn{
+				transition: 140ms;
 				color: black;
+				border-left: 0px;
+				border-radius: 0 4px 4px 0;
 			}
 			header{
 				filter: invert(1);
@@ -324,6 +331,19 @@ footer {
 		}
 	}
 }
+
 @media screen and (max-width: 750px) { 
   #columns { column-gap: 0px; }
+}
+
+@keyframes search-anim {
+	0%   { 
+		color: black
+	}
+	80%   { 
+		color: rgba(0, 0, 0, 0.75)
+	}
+	100% { 
+		color: black
+	}
 }
