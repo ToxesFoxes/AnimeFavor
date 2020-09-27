@@ -62,7 +62,7 @@ function preview(image, index) {
         preview(item.el, item.ind)
     }
     arrow_right.onclick = function () {
-        let item = prevItem(gallery, index)
+        let item = nextItem(gallery, index)
         preview(item.el, item.ind)
     }
     previewer_img.src = image.src
