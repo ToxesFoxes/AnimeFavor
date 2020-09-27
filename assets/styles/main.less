@@ -1,4 +1,4 @@
-@font-face{font-family:'Calluna';
+@font-face {font-family:'Calluna';
  src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/callunasansregular-webfont.woff') format('woff');
 }
 body {
@@ -33,20 +33,19 @@ header {
 		padding: 0;
 		color: black;
 	}
-	h3
-	{
+	h3 {
 		font-weight: 300;
 		color: black;
 	}
-	form{
+	form {
 		display: flex;
 		flex-direction: row;
 		position: relative;
 		margin: 0 30px auto auto;
-		width: 41px;
+		width: 40px;
 		height: 40px;
 		transition: all 300ms;
-		input{
+		input {
 			top: 0;
 			left: 0;
 			border: 0;
@@ -56,17 +55,18 @@ header {
 			visibility: hidden;
 			position: absolute;
 			padding: 0 40px 0 8px;
+			margin-right: 40px;
 			font-size: 1em;
 			line-height: 30px;
 			opacity: 0;
 			color: black;
 			border: 1px solid black;
-			border-radius: 4px;
+			border-radius: 64px;
 			transition: all 300ms;
 			background: transparent;
 			animation: search-anim 3s linear infinite;
 		}
-		.btn{
+		.btn {
 			top: 0;
 			right: 0;
 			width: 38px;
@@ -79,32 +79,35 @@ header {
 			color: black;
 			border: 1px solid black;
 			border-radius: 64px;
-			img{
+			transition-delay: 140ms;
+			img {
 				width: 20px;
 				height: 20px;
 			}
 		}
-		&:hover{
+		&:hover {
 			cursor: pointer;
+				transition-delay: 80ms;
 			width: 400px;
-			input{
-				opacity: 1;
+			input {
 				transition: all 300ms;
+				transition-delay: 80ms;
+				opacity: 1;
 				visibility: visible;
 			}
-			.btn{
+			.btn {
 				transition: 140ms;
-				color: black;
-				border-left: 0px;
-				border-radius: 0 4px 4px 0;
-			}
-			header{
-				filter: invert(1);
+				border-radius: 0 64px 64px 0;
+				&:hover {
+					img {
+						filter: invert(1);
+					}
+					background-color: black;
+				}
 			}
 		}
 	}
-	img.profile
-	{
+	img.profile {
 		transition: 300ms;
 		width: 36px; height: 36px;
 		margin: 0 40px auto 0;
@@ -112,14 +115,12 @@ header {
 		border-radius: 64px;
 		border-top: 0 solid transparent;
 		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
-		&:hover:active
-		{
+		&:hover:active {
 			border-top: 2px solid transparent;
 			box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
 		}
 	}
-	div.profile_data
-	{
+	div.profile_data {
 		visibility: hidden;
 		transition: opacity 100ms, visibility 100ms;
 		position: absolute;
@@ -130,28 +131,25 @@ header {
 		border-radius: 8px;
 		opacity: 0;
 		background-color: white;
-		box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
 		color: black;
-		h3, h4{
+		h3, h4 {
 		font-family: 'Open Sans';
 			padding: 0;
 			margin: 0;
 		}
-		h3
-		{
+		h3 {
 			font-weight: 600;
 			margin-bottom: 8px;
 			
 		}
-		h4
-		{
+		h4 {
 			transition: 300ms;
 			font-weight: 400;
 			margin-bottom: 8px;
 			margin-top: 8px;
 				color: rgba(0, 0, 0, 0.8);	
-			&:hover
-			{
+			&:hover {
 				color: black;
 				cursor: pointer;
 			}
@@ -162,82 +160,76 @@ header {
 
 
 .main
-{
+ {
 	flex: 1 0 auto;
 	z-index: 1;
 }
-#img_previewer 
-{
+#img_previewer
+ {
+	user-select: none;
+	-webkit-user-select: none;
 	display: none;
 	position: fixed;
 	top: 0;
 	flex-direction: column;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.85);
 	width: 100%;
 	height: 100%;
 	z-index: 20;
 	transition: 300ms background, width, height;
-	div.img_controller
-	{
+	div.img_controller {
 		margin-top: 40px;
 		flex: 1 0 auto;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: row;
-		img.arrow_left
-		{
+		img.arrow_left {
 			height: 580px;
 			padding: 0 10px;
 			border-radius: 8px;
 			width: 40px;
-			filter: invert();
+			filter: invert(1);
 			transition: 300ms;
-			&:hover
-			{
-				padding: 0 15px 0 5px;
+			&:hover {
+				padding: 0 20px 0 0;
 				cursor: pointer;
-				background-color: rgba(255, 255, 255, 0.25);
 			}
-			@media screen and (max-width: 1000px) { 
+			@media screen and (max-width: 800px) {
 				height: 60vw;
 			}
 		}
-		img.preview
-		{
+		img.preview {
 			width: auto;
-			height: 600px;
+			max-width: 400px;
+			max-height: 600px;
 			border-radius: 8px;
 			transition: 300ms;
 			z-index: 22;
 			cursor: zoom-in;
-			&:hover:active{
-				transform: scale(1.2);
+			&:hover:active {
+				transform: scale(1.05);
 			}
-			@media screen and (max-width: 1000px) { 
-				height: 100vw;
+			@media screen and (max-width: 800px) {
+				max-height: 60vw;
 			}
 		}
-		img.arrow_right
-		{
+		img.arrow_right {
 			height: 580px;
 			padding: 0 10px;
 			border-radius: 8px;
 			width: 40px;
-			filter: invert();
+			filter: invert(1);
 			transition: 300ms;
-			&:hover
-			{
-				padding: 0 5px 0 15px;
+			&:hover {
+				padding: 0 0 0 20px;
 				cursor: pointer;
-				background-color: rgba(255, 255, 255, 0.25);
 			}
-			@media screen and (max-width: 1000px) { 
+			@media screen and (max-width: 800px) {
 				height: 60vw;
 			}
 		}
-		img.exit
-		{
+		img.exit {
 			width: 50px; height: 50px;
 			position: absolute;
 			top: calc(50% - 350px);
@@ -245,14 +237,13 @@ header {
 			background-color: white;
 			border-radius: 64px;
 			transition: 300ms;
-			&:hover
-			{
-				transform: rotateZ(90deg) scale(0.95);
-				transition: 300ms;
+			&:hover {
+				transform: rotateZ(180deg) scale(0.95);
+				transition: all 300ms;
 				cursor: pointer;
 			}
-			@media screen and (max-width: 1000px) { 
-				top: calc(50% - 60vw)
+			@media screen and (max-width: 800px) {
+				top: calc(40% + 50vh)
 			}
 		}
 	}
@@ -281,13 +272,15 @@ div#columns {
 			transform: scale(1);
 			transform-origin: 50% 0;
 			&:hover:not(:active) {
-				box-shadow: none;
-				filter: brightness(0.5);
+				filter: brightness(0.8);
 				cursor: zoom-in;
 				transform: scale(1.10);
 			}
 		}
-		h4{
+		&:hover {
+			box-shadow: none;
+		}
+		h4 {
 			color: black;
 			margin: 4px;
 			padding: 0;
@@ -316,8 +309,7 @@ footer {
 		border-bottom: 1.5px solid white;
 		font-size: 1.2em;
 	}
-	.footer_links 
-	{
+	.footer_links {
 		display: flex;
 		justify-content: center;
 		a {
@@ -332,18 +324,40 @@ footer {
 	}
 }
 
-@media screen and (max-width: 750px) { 
+@media screen and (max-width: 750px) {
   #columns { column-gap: 0px; }
 }
 
 @keyframes search-anim {
-	0%   { 
+	0% {
 		color: black
 	}
-	80%   { 
+	80% {
 		color: rgba(0, 0, 0, 0.75)
 	}
-	100% { 
+	100% {
 		color: black
+	}
+}
+@keyframes pop-in {
+	0% {
+		transform: scale(1.1);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1.1);
+	}
+}
+@keyframes pop-out {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
 	}
 }

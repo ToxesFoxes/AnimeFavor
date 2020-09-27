@@ -1,8 +1,8 @@
 {
+    "svg.preview.background": "custom",
     "workbench.colorCustomizations": {
-        "activityBar.background": "#550159",
-        "titleBar.activeBackground": "#76027C",
-        "titleBar.activeForeground": "#FFF8FF"
-    },
-    "svg.preview.background": "custom"
+        "activityBar.background": "#4B0D62",
+        "titleBar.activeBackground": "#691289",
+        "titleBar.activeForeground": "#FDF9FE"
+    }
 }

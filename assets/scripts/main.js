@@ -1,12 +1,13 @@
 let gallery = document.getElementsByClassName("grid_img")
 let previewer = document.getElementById("img_previewer")
+let img_controller = document.getElementsByClassName("img_controller")[0]
 let previewer_img = document.getElementsByClassName("preview")[0]
 let previewer_exit = document.getElementsByClassName("exit")[0]
 let arrow_left = document.getElementsByClassName("arrow_left")[0]
 let arrow_right = document.getElementsByClassName("arrow_right")[0]
 let profile_data = document.getElementsByClassName("profile_data")[0]
 let profile = document.getElementsByClassName("profile")[0]
-
+let exit = false
 function getWidth() {
     return Math.max(
         document.body.scrollWidth,
@@ -58,6 +59,7 @@ function openProfileMenu() {
 function preview(image, index) {
 
     arrow_left.onclick = function () {
+        exit = false
         let item = prevItem(gallery, index)
         preview(item.el, item.ind)
     }
@@ -93,7 +95,19 @@ for (let img_index in gallery) {
 addClick(profile, function () {
     openProfileMenu()
 })
-
+addClick(previewer_img, function () {
+    exit = false
+})
+addClick(img_controller, function (event) {
+    if (img_controller == event.target)
+        previewer.style.display = "none"
+    exit = false
+})
 addClick(previewer_exit, function () {
     previewer.style.display = "none"
+})
+document.addEventListener("keyup", function (e) {
+    if (e.key === "Escape") {
+        previewer.style.display = "none"
+    }
 })
