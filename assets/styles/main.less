@@ -14,6 +14,7 @@ body {
 }
 
 header {
+	.unselectable;
 	flex: 0 0 auto;
 	z-index: 1;
 	max-height: 40px;
@@ -157,17 +158,23 @@ header {
 	}
 }
 
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+	user-select: none;
+}
 
-
-.main
- {
+.main {
 	flex: 1 0 auto;
 	z-index: 1;
 }
-#img_previewer
- {
-	user-select: none;
-	-webkit-user-select: none;
+
+#img_previewer {
+	.unselectable;
 	display: none;
 	position: fixed;
 	top: 0;
@@ -253,6 +260,7 @@ header {
 }
 
 div#columns {
+	.unselectable;
 	z-index: 15;
 	column-width: 208px;
 	column-gap: 16px;
@@ -292,6 +300,7 @@ div#columns {
 }
 
 footer {
+	.unselectable;
 	flex: 0 0 auto;
 	height: 100px;
 	justify-content: center;

@@ -14,6 +14,13 @@ body {
   color: white;
 }
 header {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   flex: 0 0 auto;
   z-index: 1;
   max-height: 40px;
@@ -157,13 +164,27 @@ header div.profile_data h4:hover {
   color: black;
   cursor: pointer;
 }
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 .main {
   flex: 1 0 auto;
   z-index: 1;
 }
 #img_previewer {
-  user-select: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   display: none;
   position: fixed;
   top: 0;
@@ -259,6 +280,13 @@ header div.profile_data h4:hover {
   }
 }
 div#columns {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   z-index: 15;
   column-width: 208px;
   column-gap: 16px;
@@ -298,6 +326,13 @@ div#columns .preview_content h4 {
   padding: 0;
 }
 footer {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   flex: 0 0 auto;
   height: 100px;
   justify-content: center;
