@@ -216,6 +216,11 @@ header div.profile_data h4:hover {
     max-height: 60vw;
   }
 }
+@media screen and (max-width: 550px) {
+  #img_previewer div.img_controller img.preview {
+    max-height: 85vw;
+  }
+}
 #img_previewer div.img_controller img.arrow_right {
   height: 580px;
   padding: 0 10px;
