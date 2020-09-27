@@ -34,7 +34,7 @@ function nextItem(arr, i) {
 }
 
 function prevItem(arr, i) {
-    if (i === 0) {
+    if (i == 0) {
         i = arr.length
     }
     i = i - 1
