@@ -1,10 +1,12 @@
-let gallery = document.getElementsByClassName("grid_img")
+let gallery_item_img = document.getElementsByClassName("list_img")
+let gallery_item_text = document.getElementsByClassName("list_description")
 let previewer = document.getElementById("img_previewer")
 let img_controller = document.getElementsByClassName("img_controller")[0]
-let previewer_img = document.getElementsByClassName("preview")[0]
-let previewer_exit = document.getElementsByClassName("exit")[0]
-let arrow_left = document.getElementsByClassName("arrow_left")[0]
-let arrow_right = document.getElementsByClassName("arrow_right")[0]
+let previewer_img = document.getElementsByClassName("preview_img")[0]
+let previewer_text = document.getElementsByClassName("preview_text")[0]
+let previewer_exit = document.getElementsByClassName("preview_exit")[0]
+let arrow_left = document.getElementsByClassName("preview_arrow_left")[0]
+let arrow_right = document.getElementsByClassName("preview_arrow_right")[0]
 let profile_data = document.getElementsByClassName("profile_data")[0]
 let profile = document.getElementsByClassName("profile")[0]
 let exit = false
@@ -56,17 +58,18 @@ function openProfileMenu() {
     }
 }
 
-function preview(image, index) {
+function preview(image, index, desc) {
 
     arrow_left.onclick = function () {
         exit = false
-        let item = prevItem(gallery, index)
-        preview(item.el, item.ind)
+        let item = prevItem(gallery_item_img, index)
+        preview(item.el, item.ind, gallery_item_text[item.ind])
     }
     arrow_right.onclick = function () {
-        let item = nextItem(gallery, index)
-        preview(item.el, item.ind)
+        let item = nextItem(gallery_item_img, index)
+        preview(item.el, item.ind, gallery_item_text[item.ind])
     }
+    previewer_text.innerHTML = desc.innerHTML
     previewer_img.src = image.src
     previewer.style.display = "flex"
 }
@@ -79,11 +82,12 @@ function addClick(element, func) {
     }
 }
 
-for (let img_index in gallery) {
-    let current_img = gallery[img_index]
+for (let index in gallery_item_img) {
+    let current_img = gallery_item_img[index]
+    let current_text = gallery_item_text[index]
     try {
         addClick(current_img, function () {
-            preview(current_img, img_index)
+            preview(current_img, index, current_text)
         })
     } catch (e) {
         console.log(e + '| Err ' + current_img)

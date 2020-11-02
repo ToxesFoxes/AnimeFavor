@@ -203,7 +203,7 @@ header div.profile_data h4:hover {
   align-items: center;
   flex-direction: row;
 }
-#img_previewer div.img_controller img.arrow_left {
+#img_previewer div.img_controller img.preview_arrow_left {
   height: 580px;
   padding: 0 10px;
   border-radius: 8px;
@@ -211,16 +211,22 @@ header div.profile_data h4:hover {
   filter: invert(1);
   transition: 300ms;
 }
-#img_previewer div.img_controller img.arrow_left:hover {
+#img_previewer div.img_controller img.preview_arrow_left:hover {
   padding: 0 20px 0 0;
   cursor: pointer;
 }
 @media screen and (max-width: 800px) {
-  #img_previewer div.img_controller img.arrow_left {
+  #img_previewer div.img_controller img.preview_arrow_left {
     height: 60vw;
   }
 }
-#img_previewer div.img_controller img.preview {
+#img_previewer div.img_controller div.preview_contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+#img_previewer div.img_controller div.preview_contents img.preview_img {
   width: auto;
   max-width: 400px;
   max-height: 600px;
@@ -229,20 +235,25 @@ header div.profile_data h4:hover {
   z-index: 22;
   cursor: zoom-in;
 }
-#img_previewer div.img_controller img.preview:hover:active {
+#img_previewer div.img_controller div.preview_contents img.preview_img:hover:active {
   transform: scale(1.05);
 }
 @media screen and (max-width: 800px) {
-  #img_previewer div.img_controller img.preview {
+  #img_previewer div.img_controller div.preview_contents img.preview_img {
     max-height: 60vw;
   }
 }
 @media screen and (max-width: 550px) {
-  #img_previewer div.img_controller img.preview {
+  #img_previewer div.img_controller div.preview_contents img.preview_img {
     max-height: 85vw;
   }
 }
-#img_previewer div.img_controller img.arrow_right {
+#img_previewer div.img_controller div.preview_contents p.preview_text {
+  padding: 0;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+#img_previewer div.img_controller img.preview_arrow_right {
   height: 580px;
   padding: 0 10px;
   border-radius: 8px;
@@ -250,16 +261,16 @@ header div.profile_data h4:hover {
   filter: invert(1);
   transition: 300ms;
 }
-#img_previewer div.img_controller img.arrow_right:hover {
+#img_previewer div.img_controller img.preview_arrow_right:hover {
   padding: 0 0 0 20px;
   cursor: pointer;
 }
 @media screen and (max-width: 800px) {
-  #img_previewer div.img_controller img.arrow_right {
+  #img_previewer div.img_controller img.preview_arrow_right {
     height: 60vw;
   }
 }
-#img_previewer div.img_controller img.exit {
+#img_previewer div.img_controller img.preview_exit {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -269,13 +280,13 @@ header div.profile_data h4:hover {
   border-radius: 64px;
   transition: 300ms;
 }
-#img_previewer div.img_controller img.exit:hover {
+#img_previewer div.img_controller img.preview_exit:hover {
   transform: rotateZ(180deg) scale(0.95);
   transition: all 300ms;
   cursor: pointer;
 }
 @media screen and (max-width: 800px) {
-  #img_previewer div.img_controller img.exit {
+  #img_previewer div.img_controller img.preview_exit {
     top: calc(40% + 50vh);
   }
 }
@@ -295,32 +306,51 @@ div#columns {
   margin: 60px auto;
   transition: 300ms width, height;
 }
-div#columns .preview_content {
-  background: #fefefe;
+div#columns div.list_item_content {
+  background: #fefefe69;
+  display: inline-block;
   border-radius: 16px;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
-  margin: 0 2px 15px;
+  margin: 25px 5px;
   max-width: 100%;
   text-align: center;
   overflow: hidden;
+  transition: 300ms;
 }
-div#columns .preview_content img {
+div#columns div.list_item_content img.list_img {
+  overflow: hidden;
   width: 100%;
   height: auto;
-  border-radius: 16px;
-  transition: box-shadow 300ms, filter 300ms, transform 300ms;
-  transform: scale(1);
+  border-radius: 0.5em;
+  transition: all 300ms;
   transform-origin: 50% 0;
 }
-div#columns .preview_content img:hover:not(:active) {
-  filter: brightness(0.8);
+div#columns div.list_item_content a.list_description {
+  color: black;
+  margin: 8px;
+  display: inline-block;
+  word-wrap: break-word;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+div#columns div.list_item_content:hover {
+  background: #1e1e1e;
+  border-radius: 1em;
+}
+div#columns div.list_item_content:hover a.list_description {
+  color: white;
+}
+div#columns div.list_item_content:hover img.list_img {
+  filter: brightness(0.75);
+}
+div#columns div.list_item_content:hover img.list_img:hover:not(:active) {
   cursor: zoom-in;
-  transform: scale(1.1);
 }
-div#columns .preview_content:hover {
-  box-shadow: none;
-}
-div#columns .preview_content h4 {
+div#columns div.list_item_content h4 {
   color: black;
   margin: 4px;
   padding: 0;
